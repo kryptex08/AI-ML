@@ -1,12 +1,12 @@
 import csv
-co=open('find.csv','r')
-cr=csv.reader(co)
-h=['0','0','0','0']
-for i in cr:
-    if h==['0','0','0','0'] and i[-1]=='Yes':
-        h=i
-    if(i[-1]==h[-1]):
-        for j in range(int(len(i))-1):
-            if h[j]!=i[j]:
-               h[j]='?'
-print (h)
+with open("find.csv",'r') as co:
+    cr=csv.reader(co)
+    h=None
+    for i in cr:
+        if h is None and i[-1]=="Yes":
+            h=i[:-1]
+        elif i[-1]=="Yes":
+            for j in range(len(h)):
+                if h[j]!=i[j]:
+                    h[j]='?'
+    print(h)
